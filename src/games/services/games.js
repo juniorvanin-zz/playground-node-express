@@ -1,9 +1,9 @@
 import igdb from 'igdb-api-node'
 
-const client = igdb('590f8af72747b218f501351a2d3dae79')
+const client = igdb('')
 
-const getAll = async () => {
-  const response = await client.games(
+const getAll = () => {
+  return client.games(
     {
       filters: {
           'release_dates.date-lt': '2018-01-01'
@@ -13,9 +13,9 @@ const getAll = async () => {
       offset: 0,
       order: 'release_dates.date:desc',
     }
+  ).then(
+    response => response.body
   )
-
-  return response
 }
 
 export {
