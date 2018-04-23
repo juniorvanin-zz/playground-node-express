@@ -3,16 +3,23 @@
   "main": "server.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "start": "npm run build && node lib/index.js"
+    "start": "npm run build && node lib/index.js",
+    "test": "mocha --recursive --compilers js:babel-core/register"
   },
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "igdb-api-node": "^3.1.3",
-    "sleep": "^5.1.1"
+    "sleep": "^5.1.1",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.1.1",
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.0.0"
   }
 }

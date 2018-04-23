@@ -1,20 +1,21 @@
-import igdb from 'igdb-api-node'
+import axios from 'axios'
+import { getIgbdToken } from './../../utils/'
 
-const client = igdb('')
+const buildRequestConfig = () => (
+  {
+    'headers': {
+      'user-key': getIgbdToken(),
+      'Accept': 'application/json'
+    }
+  }
+)
 
 const getAll = () => {
-  return client.games(
-    {
-      filters: {
-          'release_dates.date-lt': '2018-01-01'
-      },
-      fields: "*",
-      limit: 30,
-      offset: 0,
-      order: 'release_dates.date:desc',
+  return axios.get('https://api-endpoint.igdb.com/games/?fields=*&limit=10', buildRequestConfig())
+  .then(
+    response => {
+      return response.data
     }
-  ).then(
-    response => response.body
   )
 }
 
