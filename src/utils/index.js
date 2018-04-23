@@ -1,7 +1,7 @@
-const getIgbdToken = () => {
-  return process.env.IGBD_API_TOKEN
+const getIgdbToken = () => {
+  return process.env.IGDB_API_TOKEN
 }
 
 export {
-  getIgbdToken
+  getIgdbToken
 }

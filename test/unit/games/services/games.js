@@ -10,10 +10,10 @@ describe('games service', () => {
   var utilsStub
 
   beforeEach(() => {
-    const igdbResponse = buildIgbdDummyResponse()
+    const igdbResponse = buildIgdbDummyResponse()
 
     axiosStub = sinon.stub(axios, 'get').returns(Promise.resolve(igdbResponse))
-    utilsStub = sinon.stub(Utils, 'getIgbdToken').returns("some-igbd-token")
+    utilsStub = sinon.stub(Utils, 'getIgdbToken').returns("some-igdb-token")
   })
 
   afterEach(() => {
@@ -21,7 +21,7 @@ describe('games service', () => {
     utilsStub.restore()
   })
 
-  it('calls IGBD api with correct url', (done) => {
+  it('calls IGDB api with correct url', (done) => {
     GamesService.getAll().then(
       response => {
         axiosStub.should.have.been.calledWith('https://api-endpoint.igdb.com/games/?fields=*&limit=10')
@@ -29,10 +29,10 @@ describe('games service', () => {
     ).then(done, done)
   })
 
-  it('calls IGBD api with request headers', (done) => {
+  it('calls IGDB api with request headers', (done) => {
     const expectedRequestConfig = {
       headers: {
-        'user-key': "some-igbd-token",
+        'user-key': "some-igdb-token",
         'Accept': 'application/json'
       }
     }
@@ -44,7 +44,7 @@ describe('games service', () => {
     ).then(done, done)
   })
 
-  it('get all latest games from IGBD', (done) => {
+  it('get all latest games from IGDB', (done) => {
     GamesService.getAll()
     .then(
       response => {
@@ -53,7 +53,7 @@ describe('games service', () => {
     ).then(done, done)
   })
 
-  const buildIgbdDummyResponse = () => {
+  const buildIgdbDummyResponse = () => {
     return {
       data: [
         {

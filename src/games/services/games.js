@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { getIgbdToken } from './../../utils/'
+import { getIgdbToken } from './../../utils/'
 
 const buildRequestConfig = () => (
   {
     'headers': {
-      'user-key': getIgbdToken(),
+      'user-key': getIgdbToken(),
       'Accept': 'application/json'
     }
   }

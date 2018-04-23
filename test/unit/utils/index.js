@@ -4,14 +4,14 @@ import expect from '../helpers/chaiSetup'
 describe('utils', () => {
 
   beforeEach(() => {
-    process.env.IGBD_API_TOKEN = 'some-igbd-token'
+    process.env.IGDB_API_TOKEN = 'some-igdb-token'
   })
 
   afterEach(() => {
-    delete process.env.IGBD_API_TOKEN;
+    delete process.env.IGDB_API_TOKEN;
   })
 
-  it('gets igbd token from enviroment varible', () => {
-    expect(Utils.getIgbdToken()).to.be.equal('some-igbd-token')
+  it('gets igdb token from enviroment varible', () => {
+    expect(Utils.getIgdbToken()).to.be.equal('some-igdb-token')
   })
 })
